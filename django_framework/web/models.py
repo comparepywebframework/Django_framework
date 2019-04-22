@@ -1,3 +1,9 @@
 from django.db import models
 
-# Create your models here.
+class Shop(models.Model):
+    name = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
+    street = models.CharField(max_length=100)
+    street_number = models.IntegerField()
+    open_at = models.TimeField()
+    close_at = models.TimeField()
