@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  mysql_django:
+    container_name: "mysql_django"
+    image: mysql:latest
+    ports:
+      - "3308:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "django_framework"
+    command: --default-authentication-plugin=mysql_native_password
+  web:
+    container_name: "django_framewrok"
+    build: .
+    command: bash -c "./wait-for-it.sh -t 0 mysql_django:3308 -- python manage.py migrate && python manage.py loaddata db_fixtures.json && python manage.py runserver 0.0.0.0:8001"
+    depends_on:
+      - mysql_django
+    links:
+      - mysql_django
+    ports:
+      - "8001:8001"
