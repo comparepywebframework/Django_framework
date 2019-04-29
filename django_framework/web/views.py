@@ -5,6 +5,7 @@ import json
 from .models import Shop
 import uuid
 from datetime import time
+import requests
 
 
 @csrf_exempt
@@ -28,3 +29,8 @@ def add_shop(request):
 def clear_shops_table(request):
     Shop.objects.all().delete()
     return HttpResponse(status=200)
+
+
+def external_api_call(request):
+    r = requests.get('http://api.openweathermap.org/data/2.5/weather?id=3096472&APPID=39d3a15f5bdcab980c739b931b9c2863')
+    return HttpResponse(r.text)
