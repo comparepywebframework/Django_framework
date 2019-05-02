@@ -41,8 +41,8 @@ def serialize_json(request):
     id_number = uuid.uuid4()
     Student.objects.create(name="Jim", surname="Bim", date_of_birth=date(
         1990, 1, 1), id_number=id_number).save()
-    student = Student.objects.filter(id_number=id_number)
-    return HttpResponse(serialize('json', student))
+    student = Student.objects.filter(id_number=id_number).first()
+    return JsonResponse({"name": student.name, "surname": student.surname, "date_of_birth": student.date_of_birth, "id_number": student.id_number})
 
 
 @csrf_exempt
