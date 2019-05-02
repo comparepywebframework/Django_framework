@@ -1,11 +1,10 @@
-# Golf Scores
+# Django Framework Benchmarks
 
 ## Uruchomienie
 
 ### Wersja produkcyjna
 
-`docker-compose up -d mysql`  
-`docker-compose up -d server`
+`docker-compose up -d `  
 
 ### Development
 
