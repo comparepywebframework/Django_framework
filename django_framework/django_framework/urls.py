@@ -20,9 +20,9 @@ from web import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
-    path('add_shop/', views.add_shop, name='add_shop'),
-    path('clear_shops_table/', views.clear_shops_table, name='clear_shops_table'),
-    path('external_api_call/', views.external_api_call, name='external_api_call'),
-    path('serialize_json/', views.serialize_json, name='serialize_json'),
-    path('clear_students_table/', views.clear_students_table, name='clear_students_table'),
+    path('add_shop', views.add_shop, name='add_shop'),
+    path('clear_shops_table', views.clear_shops_table, name='clear_shops_table'),
+    path('external_api_call', views.external_api_call, name='external_api_call'),
+    path('serialize_json', views.serialize_json, name='serialize_json'),
+    path('clear_students_table', views.clear_students_table, name='clear_students_table'),
 ]
